@@ -1,0 +1,403 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-black: #000;
+    --clr-white: #FFF;
+    
+    /* green palette */
+    --clr-light: #F5FFFC;
+    --clr-main: #a0c1b9;
+    --clr-dark: #77a69b;
+    
+    /* orange palette
+    --clr-light: #FDF7F4;
+    --clr-main: #FFD18C;
+    --clr-dark: #FFA724;
+    */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    background-color: var(--clr-light);
+}
+
+
+
+/* HEADER & NAV ---------------------------------------------- */
+
+header {
+    background-color: var(--clr-white);
+    text-align: center;
+}
+
+#logo {
+    height: 60px;
+    display: block;
+    margin: 40px auto 50px auto;
+}
+
+nav {
+    height: 66px;
+    background-color: var(--clr-main);
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+nav ul {
+    height: 66px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    width: 98%;
+}
+
+nav ul li {
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 400; 
+    padding: 2px 0;
+    border-top: 5px solid transparent; /* To keep them vertically centered */
+    border-bottom: 5px solid transparent;
+    transition: font-weight 0.3s;
+}
+
+nav li:hover {
+    font-weight: 700;
+    border-bottom: 5px solid var(--clr-dark);
+}
+
+.nav-current-page {
+    font-weight: 700;
+}
+
+
+/* MAIN ------------------------------------------------------ */
+
+main {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+
+/* ACTION BUTTONS -------------------------------------------- */
+
+#actions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto 20px auto;
+    gap: 0.8rem;
+}
+
+.action-btn {
+    font-size: 1.125rem;
+    font-weight: 700;
+    width: 150px;
+    height: 50px;
+    background-color: var(--clr-white);
+    border: 5px solid var(--clr-dark);
+    border-radius: 50px;
+}
+
+
+
+/* ACCOUNTS -------------------------------------------------- */
+
+#data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.data {
+    width: 85%;
+    margin: 0 auto;
+}
+
+#all-accounts {
+    display: grid;
+    grid-template-rows: min-content, repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "title"
+        "account1"
+        "account2"
+        "account3";
+    justify-content: center;
+    column-gap: 15px;     
+}
+
+h2 {
+    text-align: left;
+    font-size: 1.75rem;
+    grid-area: title;
+}
+
+.account {
+    background-color: var(--clr-white);
+    border: 5px solid var(--clr-dark);
+    border-radius: 15px;
+    height: 90px;
+    margin: 15px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-account {
+    background-color: var(--clr-main);
+}
+
+.account p {
+    margin: 4px;
+    font-size: 1.25rem;
+}
+
+
+
+/* SPENDINGS ------------------------------------------------- */
+
+.spending-category {
+    background: var(--clr-main);
+    border-radius: 10px;
+    margin: 15px 0;  
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    justify-items: end;
+    min-width: 220px;
+}
+
+.spending-category p {
+    margin: 15px 10px;
+}
+
+.spending-name {
+    justify-self: flex-start;
+    margin-right: 0;
+}
+
+.percent {
+    font-weight: 400;
+}
+
+/* Optional 'fake staggered' line lengths
+(the gradients are proportionate but these are not)  */
+    .sc-1 {
+        width: 91%;
+    }
+
+    .sc-2 {
+        width: 82%;
+    }
+
+    .sc-3 {
+        width: 73%;
+    }
+
+    .sc-4 {
+        width: 64%;
+    }
+
+    .sc-5 {
+        width: 55%;
+    }
+      
+      
+.no-spendings {
+    text-align: left;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+
+
+/* HOVER EFFECTS & TRANSITIONS ------------------------------- */
+
+.spending-category:hover{
+   transform: scale(1.05);
+}
+
+button:hover, .account:hover {
+    transform: scale(1.05);
+    background-color: var(--clr-main);
+    border: 5px solid var(--clr-dark); 
+}
+
+button, .account, .spending-category {
+    transition: transform 0.3s;
+    transition: margin 0.3s;
+    transition: border 0.3s;
+}
+
+
+
+/* FOOTER ---------------------------------------------------- */
+
+footer {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 80px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    padding: 30px;
+    background-color: var(--clr-main);
+}
+
+
+
+/* MEDIA QUERIES --------------------------------------------- */
+
+@media (min-width: 500px) {
+    html {
+        font-size: 18px;
+    }
+    
+    #logo {
+        height: 70px;
+        margin: 45px auto 55px auto;
+    }
+        
+    #actions-container {
+        margin: 30px auto 25px auto;
+    }
+
+    .action-btn {
+        width: 175px;
+        height: 55px;
+    }
+    
+    .spending-category p {
+        margin: 15px;
+    }
+}
+
+
+
+@media (min-width: 600px) {
+    html {
+        font-size: 20px;
+    }
+    
+    nav ul {
+        width: 90%;
+        max-width: 800px;
+    }
+    
+    nav ul li {
+        font-size: 1.1rem;
+    }
+    
+    #actions-container {
+        gap: 1rem;
+    }
+
+    .action-btn {
+        width: 220px;
+        height: 62px;
+    }
+
+    #all-accounts {
+        grid-template-rows: min-content, 1fr;
+        grid-template-columns: repeat(3, calc(100% / 3 - 10px));
+        grid-template-areas: 
+            "title title title"
+            "account1 account2 account3";
+        justify-content: center;
+        column-gap: 15px;
+    }
+    
+    .account {
+        margin: 15px auto;
+        height: 105px;
+    }
+    
+    .account p {
+        font-size: 1.125rem;
+    }
+    
+}
+
+
+
+@media (min-width: 1000px) {
+    html {
+        font-size: 22px;
+    }
+    
+    #logo {
+        height: 80px;
+        margin: 50px auto 60px auto;
+    }
+    
+    nav ul {
+        width: 90%;
+        max-width: 800px;
+    }
+
+    main {
+        width: 80%;
+    }
+    
+    #actions-container {
+        gap: 1.3rem;
+    }
+
+    .action-btn {
+        width: 275px;
+        height: 67px;
+        margin-bottom: 10px;
+    }
+
+    .data {
+        width: 45%;
+        display: inline-block;
+    }
+
+    #data-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    #all-accounts {
+        display: block;
+    }
+    
+    h2 {
+        margin-bottom: 20px;
+    }
+    
+    .account {
+        flex-direction: row; 
+        justify-content: space-between;
+        height: 105px;
+        margin: 15px auto;
+    }
+
+    .account p {
+        margin: 25px;
+    }
+
+    .no-spendings {
+        margin-top: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .spending-category p{
+        font-size: 0.9rem;
+    }
+}
